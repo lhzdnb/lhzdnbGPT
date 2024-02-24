@@ -1,10 +1,10 @@
 {
-  "name": "lhzdnbgpt",
+  "name": "gptgenius",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx prisma generate && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -13,8 +13,8 @@
     "@prisma/client": "^5.5.2",
     "@tanstack/react-query": "^5.8.1",
     "@tanstack/react-query-devtools": "^5.8.1",
-    "axios": "^1.6.1",
-    "next": "14.1.0",
+    "axios": "^1.6.2",
+    "next": "14.0.2",
     "openai": "^4.14.2",
     "react": "^18",
     "react-dom": "^18",
