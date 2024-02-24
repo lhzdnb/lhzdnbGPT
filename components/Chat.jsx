@@ -47,7 +47,7 @@ function Chat() {
   );
 
   return (
-    <div className="min-h-[calc(100vh-6rem)] grid grid-rows-[1fr_auto]">
+    <div className="min-h-[calc(100vh-6rem)] grid grid-rows-[1fr_auto] px-20">
       <div>
         {messages.map(({ role, content }, index) => {
           const avatar =
@@ -56,10 +56,10 @@ function Chat() {
           return (
             <div
               key={index}
-              className={`${background} flex py-6 mx-8 px-8 text-xl leading-loose border-b border-base-300`}
+              className={`${background} flex py-6 mx-8 px-8 text-l leading-loose border-b border-base-300`}
             >
               <span className="mr-4">{avatar}</span>
-              <p className="max-w-3xl">{content}</p>
+              <p className="">{content}</p>
             </div>
           );
         })}
@@ -69,7 +69,7 @@ function Chat() {
           </div>
         )}
       </div>
-      <form onSubmit={handleSubmit} className="max-w-4xl pt-12">
+      <form onSubmit={handleSubmit} className="max-w-6xl pt-12 px-8">
         <div className="join w-full">
           <input
             type="text"
