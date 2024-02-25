@@ -8,7 +8,7 @@ import {
   getExistingTour,
 } from "@/utils/action";
 import toast from "react-hot-toast";
-import LoadingText from "@/components/LoadingText";
+import LoadingText from "@/components/LoadingText.jsx";
 
 function NewTour(props) {
   const queryClient = useQueryClient();

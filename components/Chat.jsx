@@ -77,7 +77,7 @@ function Chat() {
           );
         })}
         {isPending && (
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center mt-4">
             <span className="loading loading-spinner text-primary"></span>
           </div>
         )}
