@@ -6,6 +6,10 @@ import { generateChatResponse } from "@/utils/action";
 import toast from "react-hot-toast";
 import { RiOpenaiLine } from "react-icons/ri";
 import getUserProfile from "@/utils/getUserProfile";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import MarkdownWithMath from "@/components/MarkdownWithMath";
+import ChatBlankPage from "@/components/ChatBlankPage";
 
 function Chat() {
   const [text, setText] = useState("");
@@ -43,12 +47,15 @@ function Chat() {
   }
 
   const userImg = (
-    <img src={userImgUrl} alt="User" className="w-10 h-10 rounded-full" />
+    <div className="w-10 h-10">
+      <img src={userImgUrl} alt="User" className="w-10 h-10 rounded-full" />
+    </div>
   );
 
   return (
     <div className="min-h-[calc(100vh-6rem)] grid grid-rows-[1fr_auto] px-20">
       <div>
+        {messages.length === 0 && <ChatBlankPage />}
         {messages.map(({ role, content }, index) => {
           const avatar =
             role === "user" ? userImg : <RiOpenaiLine className="w-10 h-10" />;
@@ -59,7 +66,13 @@ function Chat() {
               className={`${background} flex py-6 mx-8 px-8 text-l leading-loose border-b border-base-300`}
             >
               <span className="mr-4">{avatar}</span>
-              <p className="">{content}</p>
+              {role === "user" ? (
+                <p className="">{content}</p>
+              ) : (
+                <p>
+                  <MarkdownWithMath content={content} />
+                </p>
+              )}
             </div>
           );
         })}
