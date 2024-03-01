@@ -11,7 +11,6 @@ function ToursPage(props) {
     queryKey: ["tours", searchValue],
     queryFn: () => getAllTours(searchValue),
   });
-  console.log(data);
 
   return (
     <>
